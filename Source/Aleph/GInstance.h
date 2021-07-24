@@ -21,7 +21,7 @@ protected:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input")
 		float MouseSensitivity = 0.35f;
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input")
-		float GamepadSensitivity = 3.0f;
+		float GamepadSensitivity = 45.0f;
 
 	UFUNCTION(BlueprintPure)
 		float GetMouseSensitivity() const { return MouseSensitivity; }
