@@ -29,6 +29,9 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
 		int DashCount = 2;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Camera")
+		bool IsZoomed = false;
+
 	UFUNCTION(BlueprintPure)
 		int GetDashCount() const { return DashCount; }
 public:	
