@@ -26,6 +26,11 @@ protected:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character")
 		float BaseCrouchSpeed = 150.0f;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		int DashCount = 2;
+
+	UFUNCTION(BlueprintPure)
+		int GetDashCount() const { return DashCount; }
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
