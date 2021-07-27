@@ -52,10 +52,10 @@ protected:
 		bool WR = false;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		bool WR_L = false;
+		bool WR_Left = false;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		bool WR_R = false;
+		bool WR_Right = false;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
 		bool WR_Gravity = false;
@@ -64,7 +64,7 @@ protected:
 		bool WR_Suppressed = false;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		FVector WR_Normal = FVector(1.0f, 1.0f, 1.0f);
+		FVector WR_Normal = FVector(0.0f, 0.0f, 0.0f);
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
