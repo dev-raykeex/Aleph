@@ -34,6 +34,37 @@ protected:
 
 	UFUNCTION(BlueprintPure)
 		int GetDashCount() const { return DashCount; }
+
+protected:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		float DefaultGravity = 0.0f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		float WR_Speed = 0.0f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		float WR_TargetGravity = 0.0f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		float WR_JumpHeight = 0.0f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		bool WR = false;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		bool WR_L = false;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		bool WR_R = false;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		bool WR_Gravity = false;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		bool WR_Suppressed = false;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		FVector WR_Normal = FVector(1.0f, 1.0f, 1.0f);
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
