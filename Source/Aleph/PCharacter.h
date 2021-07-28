@@ -36,6 +36,16 @@ protected:
 		int GetDashCount() const { return DashCount; }
 
 protected:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
+		float GrabDistance = 0.0f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
+		float OutlineRange = 0.0f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
+		float OutlineRadius = 0.0f;
+
+protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
 		float DefaultGravity = 0.0f;
 
@@ -65,6 +75,7 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
 		FVector WR_Normal = FVector(0.0f, 0.0f, 0.0f);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
