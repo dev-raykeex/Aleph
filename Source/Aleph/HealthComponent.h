@@ -26,6 +26,9 @@ protected:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character")
 		int Health;
 
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character")
+		int InfoMaxHealth = 100;
+
 	UFUNCTION(BlueprintPure)
 		int GetHealth() const { return Health; }
 
