@@ -28,6 +28,11 @@ void UHPC::BeginPlay()
 }
 
 
+void UHPC::SetHealth(int value)
+{
+	Health = value;
+}
+
 void UHPC::TakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
 {
 	Health = FMath::Clamp(float(Health) - Damage, 0.0f, float(DefaultHealth));

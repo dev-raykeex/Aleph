@@ -4,37 +4,31 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "HPC.generated.h"
+#include "EPC.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class ALEPH_API UHPC : public UActorComponent
+class ALEPH_API UEPC : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	UHPC();
+	UEPC();
 
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
-		int DefaultHealth;
+		int DefaultEnergy;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character")
-		int Health;
-
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character")
-		int InfoMaxHealth = DefaultHealth;
+		int Energy;
 
 	UFUNCTION(BlueprintPure)
-		int GetHealth() const { return Health; }
+		int GetEnergy() const { return Energy; }
 
 	UFUNCTION(BlueprintCallable)
-		void SetHealth(int value);
-
-	UFUNCTION()
-		void TakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
+		void SetEnergy(int value);
 };
