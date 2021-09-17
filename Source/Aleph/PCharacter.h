@@ -26,14 +26,8 @@ protected:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character")
 		float BaseCrouchSpeed = 150.0f;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		int DashCount = 2;
-
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Camera")
 		bool IsZoomed = false;
-
-	UFUNCTION(BlueprintPure)
-		int GetDashCount() const { return DashCount; }
 
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
