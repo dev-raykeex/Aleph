@@ -1,8 +1,15 @@
 Binaries
 DerivedDataCache
+DerivedDataCache
 Intermediate
+Binaries
+Script
 Saved
+Build
 .idea
+.ignore
+.DS_Store
+.vscode#
 .vscode
 .vs
 *.VC.db
@@ -14,3 +21,4 @@ Saved
 *.suo
 *.xcodeproj
 *.xcworkspace
+*.code-workspace
