@@ -26,18 +26,21 @@ protected:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character")
 		float BaseCrouchSpeed = 150.0f;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
+		bool IsGrabbing = false;
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Camera")
 		bool IsZoomed = false;
 
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
-		float GrabDistance = 0.0f;
+		float GrabDistance = 180.0f;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
-		float OutlineRange = 0.0f;
+		float OutlineRange = 256.0f;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
-		float OutlineRadius = 0.0f;
+		float OutlineRadius = 128.0f;
 
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
