@@ -33,6 +33,13 @@ protected:
 		bool IsZoomed = false;
 
 protected:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		int InputAmount = 0;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		float DashDirection = 0.0f;
+
+protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
 		float GrabDistance = 180.0f;
 
