@@ -20,12 +20,16 @@ protected:
 	virtual void BeginPlay() override;
 
 protected:
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character")
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Movement")
 		float BaseWalkSpeed = 450.0f;
 
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character")
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Movement")
 		float BaseCrouchSpeed = 150.0f;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		float BaseWalkMultiplier = 1.0f;
+
+protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
 		bool IsGrabbing = false;
 
@@ -33,11 +37,8 @@ protected:
 		bool IsZoomed = false;
 
 protected:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Input")
 		int InputAmount = 0;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		float DashDirection = 0.0f;
 
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
@@ -49,6 +50,7 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
 		float OutlineRadius = 128.0f;
 
+// This section is dedicated to the WR mechanic in the game
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
 		float DefaultGravity = 0.0f;
@@ -80,11 +82,20 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
 		FVector WR_Normal = FVector(0.0f, 0.0f, 0.0f);
 
+protected:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		float D_Axis = 0.0f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		bool IsWalkingV = false;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+		bool IsWalkingH = false;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 };
