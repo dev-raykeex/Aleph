@@ -22,7 +22,7 @@ protected:
 		bool AllowDebug = false;
 
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Movement")
-		bool AllowAdvMov = false;
+		bool AllowAdvMov = true;
 
 protected:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Movement")
