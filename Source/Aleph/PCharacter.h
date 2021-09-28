@@ -21,6 +21,9 @@ protected:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Debug")
 		bool AllowDebug = false;
 
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Movement")
+		bool AllowAdvMov = false;
+
 protected:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Movement")
 		float BaseWalkSpeed = 450.0f;
@@ -39,17 +42,17 @@ protected:
 		bool IsZoomed = false;
 
 protected:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Input")
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input")
 		int InputAmount = 0;
 
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
 		float GrabDistance = 180.0f;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Character")
 		float OutlineRange = 256.0f;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Character")
 		float OutlineRadius = 128.0f;
 
 // This section is dedicated to the WR mechanic in the game
