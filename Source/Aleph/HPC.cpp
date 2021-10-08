@@ -2,12 +2,12 @@
 
 
 #include "HPC.h"
+#include "GInstance.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values for this component's properties
 UHPC::UHPC()
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
 	DefaultHealth = 100;
@@ -19,7 +19,6 @@ UHPC::UHPC()
 void UHPC::BeginPlay()
 {
 	Super::BeginPlay();
-
 	AActor* Owner = GetOwner();
 	if (Owner)
 	{
@@ -35,7 +34,10 @@ void UHPC::SetHealth(int value)
 
 void UHPC::TakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
 {
-	Health = FMath::Clamp(float(Health) - Damage, 0.0f, float(DefaultHealth));
+	UGInstance* Instance = Cast<UGInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	if (Instance->ALLOW_RECEIVE_DAMAGE) {
+		Health = FMath::Clamp(float(Health) - Damage, 0.0f, float(DefaultHealth));
+	}
 }
 
 
