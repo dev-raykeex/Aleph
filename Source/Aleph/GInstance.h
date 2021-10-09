@@ -31,10 +31,20 @@ public:
 		bool ALLOW_BASIC_MOVEMENT = true;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
-		bool ALLOW_ADV_MOVEMENT = false;
+		bool ALLOW_ADV_MOVEMENT = true;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
 		bool ALLOW_RECEIVE_DAMAGE = true;
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Preferences")
+		bool HoldCrouch = true;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Preferences")
+		bool HoldShift = true;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Preferences")
+		bool HoldPickup = true;
 
 protected:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input")
