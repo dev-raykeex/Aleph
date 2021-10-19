@@ -16,5 +16,8 @@ class ALEPH_API USaveSettings : public USaveGame
 	
 public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Gameplay")
-		FString UIStyle;
+		FString UIStyle_SValue;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input")
+		float MouseSensitivity_SValue;
 };
