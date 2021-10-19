@@ -15,35 +15,49 @@ class ALEPH_API UGInstance : public UGameInstance
 	GENERATED_BODY()
 
 public:
-	virtual void Init();	
+	virtual void Init();
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Gameplay", meta = (GetOptions = "RetrieveUINaming"))
+		FString UIStyle = "Alternative";
+
+	UFUNCTION()
+		TArray<FString> RetrieveUINaming() const
+		{
+			return {
+				"Classic",
+				"Alternative"
+			};
+		}
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Debug")
+		bool AllowDebug = false;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Debug")
+		bool AllowDeath = true;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Debug")
+		bool AllowAbilities = true;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Debug")
+		bool AllowTakeDamage = true;
 
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
-		bool ALLOW_DEBUG = false;
+		bool AllowBasicMovement = true;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
-		bool ALLOW_DEATH = true;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
-		bool ALLOW_ABILITIES = false;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
-		bool ALLOW_BASIC_MOVEMENT = true;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
-		bool ALLOW_ADV_MOVEMENT = true;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
-		bool ALLOW_RECEIVE_DAMAGE = true;
+		bool AllowAdvancedMovement = true;
 
 public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Preferences")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Gameplay")
 		bool HoldCrouch = true;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Preferences")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Gameplay")
 		bool HoldShift = true;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Preferences")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Gameplay")
 		bool HoldPickup = true;
 
 protected:

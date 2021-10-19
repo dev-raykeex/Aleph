@@ -35,7 +35,7 @@ void UHPC::SetHealth(int value)
 void UHPC::TakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
 {
 	UGInstance* Instance = Cast<UGInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
-	if (Instance->ALLOW_RECEIVE_DAMAGE) {
+	if (Instance->AllowTakeDamage) {
 		Health = FMath::Clamp(float(Health) - Damage, 0.0f, float(DefaultHealth));
 	}
 }
