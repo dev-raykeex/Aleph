@@ -61,6 +61,10 @@ public:
 		bool HoldPickup = true;
 
 protected:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Subtitles")
+		bool DisplaySubtitles = true;
+
+protected:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input")
 		float MouseSensitivity = 0.25f;
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input")
