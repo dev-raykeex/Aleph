@@ -62,7 +62,10 @@ public:
 
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Subtitles")
-		bool DisplaySubtitles = true;
+		bool EnableSubtitles = true;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Subtitles")
+		bool EnableClosedCaptions = false;
 
 protected:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input")
