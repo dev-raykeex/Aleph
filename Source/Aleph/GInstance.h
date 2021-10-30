@@ -21,12 +21,14 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Gameplay", meta = (GetOptions = "RetrieveUINaming"))
 		FString UIStyle = "Alternative";
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 		TArray<FString> RetrieveUINaming() const
 		{
 			return {
-				"Classic",
-				"Alternative"
+				"Off",
+				"Aleph",
+				"Alternative",
+				"Classic"
 			};
 		}
 
@@ -42,6 +44,11 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Debug")
 		bool AllowTakeDamage = true;
+
+public:
+	// The heal ability is enabled by default in Aleph.
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Abilities")
+		bool AllowAbility_Heal = true;
 
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
