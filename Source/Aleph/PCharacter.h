@@ -20,17 +20,17 @@ protected:
 	virtual void BeginPlay() override;
 
 protected:
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Movement")
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character Movement")
 		float BaseWalkSpeed = 450.0f;
 
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Movement")
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character Movement")
 		float BaseCrouchSpeed = 150.0f;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character Movement")
 		float BaseWalkMultiplier = 1.0f;
 
 protected:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character: Interaction")
 		bool IsGrabbing = false;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Camera")
@@ -41,55 +41,23 @@ protected:
 		int InputAmount = 0;
 
 protected:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character: Interaction")
 		float GrabDistance = 180.0f;
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Character")
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Character: Interaction")
 		float OutlineRange = 256.0f;
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Character")
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Character: Interaction")
 		float OutlineRadius = 128.0f;
 
-// This section is dedicated to the WR mechanic in the game
 protected:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		float DefaultGravity = 0.0f;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		float WR_Speed = 0.0f;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		float WR_TargetGravity = 0.0f;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		float WR_JumpHeight = 0.0f;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		bool WR = false;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		bool WR_Left = false;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		bool WR_Right = false;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		bool WR_Gravity = false;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		bool WR_Suppressed = false;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
-		FVector WR_Normal = FVector(0.0f, 0.0f, 0.0f);
-
-protected:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character Movement: Dash")
 		float D_Axis = 0.0f;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character Movement: Dash")
 		bool IsWalkingV = false;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Movement")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character Movement: Dash")
 		bool IsWalkingH = false;
 
 public:	

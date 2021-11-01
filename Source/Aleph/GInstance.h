@@ -18,11 +18,11 @@ public:
 	virtual void Init();
 
 public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Gameplay", meta = (GetOptions = "RetrieveUINaming"))
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Game", meta = (GetOptions = "UI_Options"))
 		FString UIStyle = "Alternative";
 
 	UFUNCTION(BlueprintCallable)
-		TArray<FString> RetrieveUINaming() const
+		TArray<FString> UI_Options() const
 		{
 			return {
 				"Off",
@@ -33,16 +33,16 @@ public:
 		}
 
 public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Debug")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
 		bool AllowDebug = false;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Debug")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
 		bool AllowDeath = true;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Debug")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
 		bool AllowAbilities = true;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Debug")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
 		bool AllowTakeDamage = true;
 
 public:
@@ -51,13 +51,14 @@ public:
 		bool AllowAbility_Heal = true;
 
 public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Game")
 		bool AllowBasicMovement = true;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Game")
 		bool AllowAdvancedMovement = true;
 
 public:
+	//Move this to Character Controller
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Gameplay")
 		bool HoldCrouch = true;
 
@@ -72,7 +73,7 @@ protected:
 		bool EnableSubtitles = true;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Subtitles")
-		bool EnableClosedCaptions = false;
+		bool EnableClosedCaptions = true;
 
 protected:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input")
