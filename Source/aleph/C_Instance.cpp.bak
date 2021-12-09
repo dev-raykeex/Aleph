@@ -1,0 +1,61 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "C_Instance.h"
+
+#include "OnlineSessionSettings.h"
+#include "Interfaces/OnlineSessionInterface.h"
+#include "OnlineSubsystem.h"
+
+UC_Instance::UC_Instance()
+{
+
+}
+
+void UC_Instance::Init()
+{
+	Super::Init();
+
+	OnlineSubsystem = IOnlineSubsystem::Get();
+}
+
+void UC_Instance::CreateSession()
+{
+	if(OnlineSubsystem)
+	{
+		if(IOnlineSessionPtr SessionPtr = OnlineSubsystem->GetSessionInterface())
+		{
+			FOnlineSessionSettings SessionSettings;
+			SessionSettings.bIsDedicated = false;
+			SessionSettings.bShouldAdvertise = true;
+			SessionSettings.bIsLANMatch = true;
+			SessionSettings.NumPublicConnections = 5;
+			SessionSettings.bAllowJoinInProgress = true;
+			SessionSettings.bAllowJoinViaPresence = true;
+			SessionSettings.bUsesPresence = true;
+
+			SessionPtr->OnCreateSessionCompleteDelegates.AddUObject(this, &UC_Instance::OnCreateSessionComplete);
+			SessionPtr->CreateSession(0, FName("TEST"), SessionSettings);
+		}
+	}
+}
+
+void UC_Instance::OnCreateSessionComplete(FName SessionName, bool bWasSuccessful)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Success: %d"), bWasSuccessful);
+	if(OnlineSubsystem)
+	{
+		if(IOnlineSessionPtr SessionPtr = OnlineSubsystem->GetSessionInterface())
+		{
+			SessionPtr->ClearOnCreateSessionCompleteDelegates(this);
+		}
+	}
+}
+
+void UC_Instance::map(FString name) {
+	FString cmd = "open ";
+	FString finalCMD = cmd + name;
+
+	GetPrimaryPlayerController()->ConsoleCommand(finalCMD);
+}
+

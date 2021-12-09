@@ -10,8 +10,8 @@ UEPC::UEPC()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	DefaultEnergy = 100;
-	Energy = DefaultEnergy;
+	MaxEnergy = 100;
+	Energy = MaxEnergy;
 }
 
 
@@ -25,4 +25,3 @@ void UEPC::SetEnergy(int value)
 {
 	Energy = value;
 }
-

@@ -21,7 +21,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character")
-		int DefaultEnergy;
+		int MaxEnergy;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Character")
 		int Energy;
@@ -29,6 +29,6 @@ protected:
 	UFUNCTION(BlueprintPure)
 		int GetEnergy() const { return Energy; }
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(Exec, BlueprintCallable)
 		void SetEnergy(int value);
 };

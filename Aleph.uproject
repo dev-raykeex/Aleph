@@ -5,25 +5,15 @@
 	"Description": "",
 	"Modules": [
 		{
-			"Name": "Aleph",
+			"Name": "aleph",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
-				"Engine",
-				"CoreUObject"
+				"Engine"
 			]
 		}
 	],
 	"Plugins": [
-		{
-			"Name": "OculusVR",
-			"Enabled": false,
-			"SupportedTargetPlatforms": [
-				"Win32",
-				"Win64",
-				"Android"
-			]
-		},
 		{
 			"Name": "SteamVR",
 			"Enabled": false,
@@ -34,24 +24,28 @@
 			]
 		},
 		{
-			"Name": "PhysXVehicles",
-			"Enabled": false
+			"Name": "EOSShared",
+			"Enabled": true
 		},
 		{
-			"Name": "OnlineSubsystemNull",
-			"Enabled": false
+			"Name": "EOSVoiceChat",
+			"Enabled": true
 		},
 		{
-			"Name": "OnlineSubsystemUtils",
-			"Enabled": false
+			"Name": "OnlineSubsystem",
+			"Enabled": true
 		},
 		{
-			"Name": "OnlineSubsystemIOS",
-			"Enabled": false,
-			"SupportedTargetPlatforms": [
-				"IOS",
-				"TVOS"
-			]
+			"Name": "OnlineSubsystemEOS",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineFramework",
+			"Enabled": true
+		},
+		{
+			"Name": "GooglePAD",
+			"Enabled": false
 		},
 		{
 			"Name": "OnlineSubsystemGooglePlay",
@@ -61,23 +55,12 @@
 			]
 		},
 		{
-			"Name": "OnlineSubsystem",
+			"Name": "AndroidPermission",
 			"Enabled": false
 		},
 		{
-			"Name": "GoogleCloudMessaging",
-			"Enabled": false
-		},
-		{
-			"Name": "MobilePatchingUtils",
-			"Enabled": false
-		},
-		{
-			"Name": "MagicLeapMedia",
-			"Enabled": false,
-			"SupportedTargetPlatforms": [
-				"Lumin"
-			]
+			"Name": "SoundVisualizations",
+			"Enabled": true
 		},
 		{
 			"Name": "MagicLeap",
@@ -89,31 +72,11 @@
 			]
 		},
 		{
-			"Name": "LuminPlatformFeatures",
+			"Name": "MagicLeapMedia",
 			"Enabled": false,
 			"SupportedTargetPlatforms": [
 				"Lumin"
 			]
-		},
-		{
-			"Name": "IOSDeviceProfileSelector",
-			"Enabled": false
-		},
-		{
-			"Name": "AndroidDeviceProfileSelector",
-			"Enabled": false
-		},
-		{
-			"Name": "WindowsDeviceProfileSelector",
-			"Enabled": true
-		},
-		{
-			"Name": "LensDistortion",
-			"Enabled": true
-		},
-		{
-			"Name": "LocationServicesBPLibrary",
-			"Enabled": false
 		},
 		{
 			"Name": "MagicLeapPassableWorld",
@@ -125,52 +88,60 @@
 			]
 		},
 		{
-			"Name": "SteamAudio",
-			"Enabled": true
-		},
-		{
-			"Name": "Spatialization",
-			"Enabled": true
-		},
-		{
-			"Name": "GooglePAD",
+			"Name": "LocationServicesBPLibrary",
 			"Enabled": false
 		},
 		{
-			"Name": "AndroidPermission",
+			"Name": "LensDistortion",
+			"Enabled": true
+		},
+		{
+			"Name": "AndroidDeviceProfileSelector",
 			"Enabled": false
 		},
 		{
-			"Name": "RawInput",
+			"Name": "IOSDeviceProfileSelector",
+			"Enabled": false
+		},
+		{
+			"Name": "WindowsDeviceProfileSelector",
 			"Enabled": true
+		},
+		{
+			"Name": "MobilePatchingUtils",
+			"Enabled": false
+		},
+		{
+			"Name": "SteamSockets",
+			"Enabled": true
+		},
+		{
+			"Name": "GoogleCloudMessaging",
+			"Enabled": false
+		},
+		{
+			"Name": "OnlineSubsystemSteam",
+			"Enabled": true
+		},
+		{
+			"Name": "VoiceChat",
+			"Enabled": false
+		},
+		{
+			"Name": "PerformanceMonitor",
+			"Enabled": true
+		},
+		{
+			"Name": "ChaosVehiclesPlugin",
+			"Enabled": true
+		},
+		{
+			"Name": "PhysXVehicles",
+			"Enabled": false
 		},
 		{
 			"Name": "Volumetrics",
 			"Enabled": true
-		},
-		{
-			"Name": "RTXGI",
-			"Enabled": false
-		},
-		{
-			"Name": "Paper2D",
-			"Enabled": false
-		},
-		{
-			"Name": "AndroidMoviePlayer",
-			"Enabled": false
-		},
-		{
-			"Name": "ColorCorrectRegions",
-			"Enabled": true
-		},
-		{
-			"Name": "ApexDestruction",
-			"Enabled": true
-		},
-		{
-			"Name": "RuntimePhysXCooking",
-			"Enabled": false
 		},
 		{
 			"Name": "SteamShared",
@@ -181,19 +152,15 @@
 			"Enabled": false
 		},
 		{
-			"Name": "SubversionSourceControl",
-			"Enabled": false
-		},
-		{
 			"Name": "PlasticSourceControl",
 			"Enabled": false
 		},
 		{
-			"Name": "Text3D",
-			"Enabled": true
+			"Name": "SubversionSourceControl",
+			"Enabled": false
 		},
 		{
-			"Name": "CommonUI",
+			"Name": "RuntimeTests",
 			"Enabled": true
 		},
 		{
@@ -230,17 +197,13 @@
 			]
 		},
 		{
-			"Name": "AndroidMedia",
-			"Enabled": false
-		},
-		{
-			"Name": "PreLoadScreenMoviePlayer",
-			"Enabled": true
+			"Name": "OculusVR",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Win32",
+				"Win64",
+				"Android"
+			]
 		}
-	],
-	"TargetPlatforms": [
-		"LinuxNoEditor",
-		"MacNoEditor",
-		"WindowsNoEditor"
 	]
 }
