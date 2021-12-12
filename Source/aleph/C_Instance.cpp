@@ -43,9 +43,9 @@ void UC_Instance::Login()
 		if(IOnlineIdentityPtr Identity = OnlineSubsystem->GetIdentityInterface())
 		{
 			FOnlineAccountCredentials Credentials;
-			Credentials.Id = FString("127.0.0.1:8080");
-			Credentials.Token = FString("Whiteline");
-			Credentials.Type = FString("developer");
+			Credentials.Id = FString("");
+			Credentials.Token = FString("");
+			Credentials.Type = FString("accountportal");
 			Identity->OnLoginCompleteDelegates->AddUObject(this, &UC_Instance::OnLoginComplete);
 			Identity->Login(0, Credentials);
 		}
@@ -85,11 +85,13 @@ void UC_Instance::CreateSession()
 					FOnlineSessionSettings SessionSettings;
 					SessionSettings.bIsDedicated = false;
 					SessionSettings.bShouldAdvertise = true;
-					SessionSettings.bIsLANMatch = true;
-					SessionSettings.NumPublicConnections = 4;
+					SessionSettings.bIsLANMatch = false;
+					SessionSettings.NumPublicConnections = 2;
 					SessionSettings.bAllowJoinInProgress = true;
 					SessionSettings.bAllowJoinViaPresence = true;
 					SessionSettings.bUsesPresence = true;
+					SessionSettings.bUseLobbiesIfAvailable = true;
+					SessionSettings.Set(SEARCH_KEYWORDS, FString("AlephOfficialServer"), EOnlineDataAdvertisementType::ViaOnlineService);
 
 					SessionPtr->OnCreateSessionCompleteDelegates.AddUObject(this, &UC_Instance::OnCreateSessionComplete);
 					SessionPtr->CreateSession(0, FName("Aleph"), SessionSettings);
