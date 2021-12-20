@@ -40,6 +40,10 @@
 			"Enabled": true
 		},
 		{
+			"Name": "OnlineSubsystemSteam",
+			"Enabled": true
+		},
+		{
 			"Name": "OnlineFramework",
 			"Enabled": true
 		},
@@ -112,16 +116,8 @@
 			"Enabled": false
 		},
 		{
-			"Name": "SteamSockets",
-			"Enabled": true
-		},
-		{
 			"Name": "GoogleCloudMessaging",
 			"Enabled": false
-		},
-		{
-			"Name": "OnlineSubsystemSteam",
-			"Enabled": true
 		},
 		{
 			"Name": "VoiceChat",
@@ -141,10 +137,6 @@
 		},
 		{
 			"Name": "Volumetrics",
-			"Enabled": true
-		},
-		{
-			"Name": "SteamShared",
 			"Enabled": true
 		},
 		{
