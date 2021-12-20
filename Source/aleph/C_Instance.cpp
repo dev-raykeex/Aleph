@@ -17,35 +17,31 @@ UC_Instance::UC_Instance()
 void UC_Instance::Init()
 {
 	Super::Init();
-	if(bAllowOnlineServices)
-	{
-		OnlineSubsystem = IOnlineSubsystem::Get();
-		Login();
-	}
 }
 
-void UC_Instance::EnableOnlineServices()
+void UC_Instance::EnableOnlineServicesAndLogin()
 {
-	bAllowOnlineServices = true;
-	UE_LOG(LogTemp, Warning, TEXT("The Online Services are now enabled!"));
-
-	if(!OnlineSubsystem)
-	{
+	if (bAllowOnlineServices != true) {
+		bAllowOnlineServices = true;
 		OnlineSubsystem = IOnlineSubsystem::Get();
 		Login();
+		UE_LOG(LogTemp, Warning, TEXT("The Online Services are now enabled and you are logged in!"));
+	} else {
+		UE_LOG(LogTemp, Warning, TEXT("The Online Services are already enabled!"));
 	}
 }
 
 void UC_Instance::Login()
 {
-	if(OnlineSubsystem)
+	if (OnlineSubsystem)
 	{
-		if(IOnlineIdentityPtr Identity = OnlineSubsystem->GetIdentityInterface())
+		if (IOnlineIdentityPtr Identity = OnlineSubsystem->GetIdentityInterface())
 		{
 			FOnlineAccountCredentials Credentials;
-			Credentials.Id = FString("");
-			Credentials.Token = FString("");
-			Credentials.Type = FString("accountportal");
+			Credentials.Id = FString("localhost:6300");
+			Credentials.Token = FString("Context_1");
+			Credentials.Type = FString("developer");
+
 			Identity->OnLoginCompleteDelegates->AddUObject(this, &UC_Instance::OnLoginComplete);
 			Identity->Login(0, Credentials);
 		}
@@ -54,54 +50,46 @@ void UC_Instance::Login()
 
 void UC_Instance::OnLoginComplete(int32 LocalUserNum, bool bWasSuccessful, const FUniqueNetId& UserId, const FString& Error)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Login Successful: %d"), bWasSuccessful);
-	bIsLoggedIn = bWasSuccessful;
-	
-	if(bWasSuccessful == false) 
-	{
-		bAllowOnlineServices = false;
-	}
-	
-	if(OnlineSubsystem)
-	{
-		if(IOnlineIdentityPtr Identity = OnlineSubsystem->GetIdentityInterface())
+	if (bWasSuccessful == true) {
+		UE_LOG(LogTemp, Error, TEXT("Client successfully logged in EOS."));
+		bIsLoggedIn = bWasSuccessful;
+
+		if (IOnlineIdentityPtr Identity = OnlineSubsystem->GetIdentityInterface())
 		{
 			OnlineUsername = Identity->GetUserAccount(UserId)->GetDisplayName();
 			Identity->ClearOnLoginCompleteDelegates(0, this);
 		}
+	} else {
+		UE_LOG(LogTemp, Error, TEXT("Client failed logging in EOS."));
 	}
 }
 
 void UC_Instance::CreateSession()
 {
-	if(bAllowOnlineServices)
+	if(bIsLoggedIn)
 	{
-		if(bIsLoggedIn)
+		if(OnlineSubsystem)
 		{
-			if(OnlineSubsystem)
+			if(IOnlineSessionPtr SessionPtr = OnlineSubsystem->GetSessionInterface())
 			{
-				if(IOnlineSessionPtr SessionPtr = OnlineSubsystem->GetSessionInterface())
-				{
-					FOnlineSessionSettings SessionSettings;
-					SessionSettings.bIsDedicated = false;
-					SessionSettings.bShouldAdvertise = true;
-					SessionSettings.bIsLANMatch = false;
-					SessionSettings.NumPublicConnections = 2;
-					SessionSettings.bAllowJoinInProgress = true;
-					SessionSettings.bAllowJoinViaPresence = true;
-					SessionSettings.bUsesPresence = true;
-					SessionSettings.bUseLobbiesIfAvailable = true;
-					SessionSettings.Set(SEARCH_KEYWORDS, FString("AlephOfficialServer"), EOnlineDataAdvertisementType::ViaOnlineService);
+				FOnlineSessionSettings SessionSettings;
+				SessionSettings.bIsDedicated = false;
+				SessionSettings.bShouldAdvertise = true;
+				SessionSettings.bIsLANMatch = false;
+				SessionSettings.NumPublicConnections = 2;
+				SessionSettings.bAllowJoinInProgress = true;
+				SessionSettings.bAllowJoinViaPresence = true;
+				SessionSettings.bUsesPresence = true;
+				SessionSettings.bUseLobbiesIfAvailable = true;
+				SessionSettings.bUseLobbiesVoiceChatIfAvailable = true;
+				SessionSettings.Set(SEARCH_KEYWORDS, FString("AlephOfficialServer"), EOnlineDataAdvertisementType::ViaOnlineService);
 
-					SessionPtr->OnCreateSessionCompleteDelegates.AddUObject(this, &UC_Instance::OnCreateSessionComplete);
-					SessionPtr->CreateSession(0, FName("Aleph"), SessionSettings);
-				}
+				SessionPtr->OnCreateSessionCompleteDelegates.AddUObject(this, &UC_Instance::OnCreateSessionComplete);
+				SessionPtr->CreateSession(0, FName("Aleph"), SessionSettings);
 			}
-		} else {
-			UE_LOG(LogTemp, Error, TEXT("Session creation has failed due to the user not being logged in."));
 		}
 	} else {
-		UE_LOG(LogTemp, Error, TEXT("Please enable Online Services before continuing with the Session creation."));
+		UE_LOG(LogTemp, Error, TEXT("Session creation has failed due to the user not being logged in."));
 	}
 }
 

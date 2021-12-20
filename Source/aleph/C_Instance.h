@@ -20,7 +20,7 @@ public:
 	virtual void Init() override;
 	
 	UFUNCTION(Exec, BlueprintCallable, Category = "Commands")
-		void EnableOnlineServices();
+		void EnableOnlineServicesAndLogin();
 
 	UFUNCTION(Exec, BlueprintCallable, Category = "Commands")
 		void Login();
