@@ -205,6 +205,16 @@
 		{
 			"Name": "AutomationUtils",
 			"Enabled": false
+		},
+		{
+			"Name": "ScriptPlugin",
+			"Enabled": true
 		}
+	],
+	"TargetPlatforms": [
+		"AllDesktop",
+		"LinuxNoEditor",
+		"MacNoEditor",
+		"WindowsNoEditor"
 	]
 }
