@@ -30,7 +30,11 @@ public:
 	UFUNCTION(Exec, BlueprintCallable, Category = "Commands")
 		void CreateSession();
 
+	UFUNCTION(Exec, BlueprintCallable)
+		void DestroySession();
+
 	void OnCreateSessionComplete(FName SessionName, bool bWasSuccessful);
+	void OnDestroySessionComplete(FName SessionName, bool bWasSuccessful);
 	
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Gameplay")

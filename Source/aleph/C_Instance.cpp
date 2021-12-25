@@ -8,6 +8,8 @@
 #include "Interfaces/OnlineIdentityInterface.h"
 #include "OnlineSubsystem.h"
 
+const FName OnlineS_Name = FName("AlephLobby");
+
 UC_Instance::UC_Instance()
 {
 	bIsLoggedIn = false;
@@ -85,11 +87,37 @@ void UC_Instance::CreateSession()
 				SessionSettings.Set(SEARCH_KEYWORDS, FString("AlephOfficialServer"), EOnlineDataAdvertisementType::ViaOnlineService);
 
 				SessionPtr->OnCreateSessionCompleteDelegates.AddUObject(this, &UC_Instance::OnCreateSessionComplete);
-				SessionPtr->CreateSession(0, FName("Aleph"), SessionSettings);
+				SessionPtr->CreateSession(0, OnlineS_Name, SessionSettings);
 			}
 		}
 	} else {
 		UE_LOG(LogTemp, Error, TEXT("Session creation has failed due to the user not being logged in."));
+	}
+}
+
+void UC_Instance::DestroySession()
+{
+	if(bIsLoggedIn)
+	{
+		if(OnlineSubsystem)
+		{
+			if(IOnlineSessionPtr SessionPtr = OnlineSubsystem->GetSessionInterface())
+			{
+				SessionPtr->OnDestroySessionCompleteDelegates.AddUObject(this, &UC_Instance::OnDestroySessionComplete);
+				SessionPtr->DestroySession(OnlineS_Name);
+			}
+		}
+	}
+}
+
+void UC_Instance::OnDestroySessionComplete(FName SessionName, bool bWasSuccessful)
+{
+	if(OnlineSubsystem)
+	{
+		if(IOnlineSessionPtr SessionPtr = OnlineSubsystem->GetSessionInterface())
+		{
+			SessionPtr->ClearOnDestroySessionCompleteDelegates(this);
+		}
 	}
 }
 
