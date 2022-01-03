@@ -5,7 +5,7 @@
 
 #include "GenericPlatform/GenericPlatformOutputDevices.h"
 
-void UConsoleWindow::PrintLogInConsole()
+void UConsoleWindow::ReadFromFile()
 {
 	FOutputDevice* OutputDevice = FGenericPlatformOutputDevices::GetLog();
 	if(OutputDevice != nullptr)
@@ -14,7 +14,12 @@ void UConsoleWindow::PrintLogInConsole()
 		LogFile = OutputDeviceFile->GetFilename();
 	}
 	OutputDeviceFile->Flush();
-	if (FFileHelper::LoadFileToString(LogContent, *LogFile, FFileHelper::EHashOptions::None, 4))
+	if (FFileHelper::LoadANSITextFileToStrings(*LogFile, NULL, LogArray))
 	{
+		bLoadFileStatus = true;
+	} else
+	{
+		bLoadFileStatus = false;
 	}
 }
+

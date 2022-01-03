@@ -14,14 +14,16 @@ UCLASS()
 class ALEPH_API UConsoleWindow : public UUserWidget
 {
 	GENERATED_BODY()
-	
-protected:
+
+protected:	
 	UFUNCTION(BlueprintCallable)
-		void PrintLogInConsole();
+		void ReadFromFile();
 	
 	FString LogFile;
 	FOutputDeviceFile* OutputDeviceFile;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-	FString LogContent;
+	bool bLoadFileStatus;
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
+	TArray<FString> LogArray;
 };

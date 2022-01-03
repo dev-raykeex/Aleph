@@ -35,6 +35,12 @@ public:
 
 	void OnCreateSessionComplete(FName SessionName, bool bWasSuccessful);
 	void OnDestroySessionComplete(FName SessionName, bool bWasSuccessful);
+
+public:
+	UFUNCTION(Exec, BlueprintCallable, Category="Console & Commands")
+		void SendLogMessage(const FString LogMessage, FString LogEntry);
+	
+	TArray<FString> LogArray;
 	
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Gameplay")

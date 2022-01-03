@@ -2,6 +2,8 @@
 
 
 #include "C_Instance.h"
+#include "aleph.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
 
 #include "OnlineSessionSettings.h"
 #include "Interfaces/OnlineSessionInterface.h"
@@ -21,15 +23,20 @@ void UC_Instance::Init()
 	Super::Init();
 }
 
+void UC_Instance::SendLogMessage(const FString LogMessage, FString LogEntry)
+{
+	LogEntry = (TEXT("AlephLog") + LogMessage);
+}
+
 void UC_Instance::EnableOnlineServicesAndLogin()
 {
 	if (bAllowOnlineServices != true) {
 		bAllowOnlineServices = true;
 		OnlineSubsystem = IOnlineSubsystem::Get();
 		Login();
-		UE_LOG(LogTemp, Warning, TEXT("The Online Services are now enabled and you are logged in!"));
+		UE_LOG(AlephWarning, Warning, TEXT("The Online Services are now enabled and you are logged in!"));
 	} else {
-		UE_LOG(LogTemp, Warning, TEXT("The Online Services are already enabled!"));
+		UE_LOG(AlephWarning, Warning, TEXT("The Online Services are already enabled!"));
 	}
 }
 
