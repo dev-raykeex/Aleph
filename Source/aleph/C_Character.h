@@ -58,7 +58,10 @@ protected:
 		float GetYSens() const { return YSensitivity; }
 
 protected:
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category="Preferences")
+		bool bToggleInteract;
 
+protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character Movement: Dash")
 		float D_Axis = 0.0f;
 
