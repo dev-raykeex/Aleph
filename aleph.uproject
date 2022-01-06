@@ -209,6 +209,10 @@
 		{
 			"Name": "ScriptPlugin",
 			"Enabled": true
+		},
+		{
+			"Name": "SubX",
+			"Enabled": true
 		}
 	],
 	"TargetPlatforms": [
