@@ -193,10 +193,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "CommonUI",
-			"Enabled": true
-		},
-		{
 			"Name": "OpenXRHandTracking",
 			"Enabled": false,
 			"SupportedTargetPlatforms": [
@@ -235,6 +231,18 @@
 		},
 		{
 			"Name": "PreLoadScreenMoviePlayer",
+			"Enabled": true
+		},
+		{
+			"Name": "SubX",
+			"Enabled": true
+		},
+		{
+			"Name": "VitalX",
+			"Enabled": true
+		},
+		{
+			"Name": "CoreX",
 			"Enabled": true
 		}
 	],
