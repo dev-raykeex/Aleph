@@ -189,10 +189,6 @@
 			"Enabled": false
 		},
 		{
-			"Name": "Text3D",
-			"Enabled": true
-		},
-		{
 			"Name": "OpenXRHandTracking",
 			"Enabled": false,
 			"SupportedTargetPlatforms": [
