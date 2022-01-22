@@ -7,7 +7,7 @@
 FString UHardwareDetails::GetCPUBrand() {
 	if (PLATFORM_WINDOWS) {
 		return FWindowsPlatformMisc::GetCPUBrand();
-	} else if (PLATFORM_LINUX || PLATFORM_MAC || PLATFORM_MAC_ARM64) {
+	} else if (!PLATFORM_WINDOWS) {
 		return FGenericPlatformMisc::GetCPUBrand();
 	}
 }
@@ -15,7 +15,7 @@ FString UHardwareDetails::GetCPUBrand() {
 FString UHardwareDetails::GetGPUBrand() {
 	if (PLATFORM_WINDOWS) {
 		return FWindowsPlatformMisc::GetPrimaryGPUBrand();
-	} else if(PLATFORM_LINUX || PLATFORM_MAC || PLATFORM_MAC_ARM64) {
+	} else if(!PLATFORM_WINDOWS) {
 		return FGenericPlatformMisc::GetPrimaryGPUBrand();
 	}
 }
@@ -23,7 +23,7 @@ FString UHardwareDetails::GetGPUBrand() {
 int32 UHardwareDetails::GetCPUCores() {
 	if (PLATFORM_WINDOWS) {
 		return FWindowsPlatformMisc::NumberOfCores();
-	} else if (PLATFORM_LINUX || PLATFORM_MAC || PLATFORM_MAC_ARM64) {
+	} else if (!PLATFORM_WINDOWS) {
 		return FGenericPlatformMisc::NumberOfCores();
 	}
 }
@@ -31,7 +31,7 @@ int32 UHardwareDetails::GetCPUCores() {
 int32 UHardwareDetails::GetCPUThreads() {
 	if (PLATFORM_WINDOWS) {
 		return FWindowsPlatformMisc::NumberOfCoresIncludingHyperthreads();
-	} else if (PLATFORM_LINUX || PLATFORM_MAC || PLATFORM_MAC_ARM64) {
+	} else if (!PLATFORM_WINDOWS) {
 		return FGenericPlatformMisc::NumberOfCoresIncludingHyperthreads();
 	}
 }
