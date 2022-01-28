@@ -10,7 +10,8 @@
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
 				"Engine",
-				"CoreUObject"
+				"CoreUObject",
+				"UMG"
 			]
 		}
 	],
@@ -35,10 +36,6 @@
 		},
 		{
 			"Name": "PhysXVehicles",
-			"Enabled": false
-		},
-		{
-			"Name": "OnlineSubsystemNull",
 			"Enabled": false
 		},
 		{
@@ -239,6 +236,22 @@
 		},
 		{
 			"Name": "CoreX",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemEOS",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineFramework",
+			"Enabled": true
+		},
+		{
+			"Name": "Water",
+			"Enabled": true
+		},
+		{
+			"Name": "FSR",
 			"Enabled": true
 		}
 	],

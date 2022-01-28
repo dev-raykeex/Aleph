@@ -18,6 +18,11 @@ void APCharacter::BeginPlay()
 	
 }
 
+void APCharacter::SetMouseSens(float value)
+{
+	Sensitivity = value;
+}
+
 // Called every frame
 void APCharacter::Tick(float DeltaTime)
 {

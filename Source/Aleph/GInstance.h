@@ -18,21 +18,6 @@ public:
 	virtual void Init();
 
 public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Game", meta = (GetOptions = "UI_Options"))
-		FString UIStyle = "Alternative";
-
-	UFUNCTION(BlueprintCallable)
-		TArray<FString> UI_Options() const
-		{
-			return {
-				"Off",
-				"Aleph",
-				"Alternative",
-				"Classic"
-			};
-		}
-
-public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Session")
 		bool AllowDebug = false;
 
