@@ -21,6 +21,9 @@ public:
 	UFUNCTION(BlueprintPure, meta = (DisplayName = "Get GPU brand", Keywords = "GPU brand"), Category = "Game")
 		static FString GetGPUBrand();
 
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Get RHI name", Keywords = "RHI name"), Category = "Game")
+		static FString GetRHI();
+
 	UFUNCTION(BlueprintPure, meta = (DisplayName = "Get CPU cores", Keywords = "CPU cores"), Category = "Game")
 		static int32 GetCPUCores();
 

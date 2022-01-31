@@ -2,6 +2,7 @@
 
 
 #include "HardwareDetails.h"
+#include "HardwareInfo.h"
 #include "Kismet/GameplayStatics.h"
 
 FString UHardwareDetails::GetCPUBrand() {
@@ -18,6 +19,11 @@ FString UHardwareDetails::GetGPUBrand() {
 	} else if(!PLATFORM_WINDOWS) {
 		return FGenericPlatformMisc::GetPrimaryGPUBrand();
 	}
+}
+
+FString UHardwareDetails::GetRHI()
+{
+	return FHardwareInfo::GetHardwareInfo(NAME_RHI);
 }
 
 int32 UHardwareDetails::GetCPUCores() {
