@@ -253,6 +253,14 @@
 		{
 			"Name": "FSR",
 			"Enabled": true
+		},
+		{
+			"Name": "CollectUI",
+			"Enabled": true
+		},
+		{
+			"Name": "AlterMesh",
+			"Enabled": true
 		}
 	],
 	"TargetPlatforms": [
