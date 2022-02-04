@@ -3,6 +3,7 @@
 
 
 This project requires the following plugins:
+> - [AMD FSR](https://gpuopen.com/learn/ue4-fsr)
 > - [CollectUI](https://github.com/aleph-collective/CollectUI/releases/download/1.0/CollectUI-1.0.rar)
 > - [CoreX - "A" Version](https://github.com/aleph-collective/CoreX/releases/download/1.2.0A/CoreX-1.2A.rar)
 > - SubX - (Not Free - Coming Soon)
