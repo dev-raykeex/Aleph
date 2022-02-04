@@ -23,6 +23,7 @@ public:
 		{
 			return {
 				"Off",
+				"Modern",
 				"Aleph",
 				"Alternative",
 				"Classic"
