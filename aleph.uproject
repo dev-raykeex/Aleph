@@ -213,6 +213,10 @@
 		{
 			"Name": "SubX",
 			"Enabled": true
+		},
+		{
+			"Name": "FSR",
+			"Enabled": true
 		}
 	],
 	"TargetPlatforms": [
