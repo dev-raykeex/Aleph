@@ -1,7 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
-
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "C_Character.generated.h"
@@ -14,6 +13,12 @@ class ALEPH_API AC_Character : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AC_Character();
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Info")
+		FString UserName = FString("Player");
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Status")
+		bool bIsChatting = false;
 
 protected:
 	// Called when the game starts or when spawned
