@@ -122,10 +122,6 @@
 			]
 		},
 		{
-			"Name": "SteamAudio",
-			"Enabled": true
-		},
-		{
 			"Name": "Spatialization",
 			"Enabled": true
 		},
@@ -256,10 +252,6 @@
 		},
 		{
 			"Name": "CollectUI",
-			"Enabled": true
-		},
-		{
-			"Name": "AlterMesh",
 			"Enabled": true
 		}
 	],
