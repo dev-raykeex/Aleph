@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "AlephGameModeBase.generated.h"
+#include "alephGameModeBase.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class ALEPH_API AAlephGameModeBase : public AGameModeBase
+class ALEPH_API AalephGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	

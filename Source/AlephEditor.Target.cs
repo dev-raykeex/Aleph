@@ -3,12 +3,12 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class AlephEditorTarget : TargetRules
+public class alephEditorTarget : TargetRules
 {
-	public AlephEditorTarget( TargetInfo Target) : base(Target)
+	public alephEditorTarget( TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
-		ExtraModuleNames.AddRange( new string[] { "Aleph" } );
+		ExtraModuleNames.AddRange( new string[] { "aleph" } );
 	}
 }
