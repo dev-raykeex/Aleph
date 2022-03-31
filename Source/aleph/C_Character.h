@@ -72,6 +72,10 @@ protected:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Status")
 		bool bIsGrabbing = false;
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Status")
+		bool bIsCrouching = false;
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Status")
+		bool bIsGrappling = false;
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Status")
 		bool bIsWallrunning = false;
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Status")
 		bool bIsFlashOn = false;
