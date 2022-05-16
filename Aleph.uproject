@@ -42,6 +42,10 @@
 		{
 			"Name": "conSole",
 			"Enabled": true
+		},
+		{
+			"Name": "genUI",
+			"Enabled": true
 		}
 	]
 }
