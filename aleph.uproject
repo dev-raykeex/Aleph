@@ -1,0 +1,42 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "4.27",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "aleph",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "WiMan",
+			"Enabled": true
+		},
+		{
+			"Name": "CollectUI",
+			"Enabled": true
+		},
+		{
+			"Name": "CoreXChat",
+			"Enabled": false
+		},
+		{
+			"Name": "CoreX",
+			"Enabled": false
+		},
+		{
+			"Name": "SubX",
+			"Enabled": true
+		},
+		{
+			"Name": "FSR",
+			"Enabled": true
+		}
+	]
+}
