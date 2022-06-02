@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CableComponent.h"
 #include "GameFramework/Character.h"
 #include "PlayerChr.generated.h"
 
@@ -70,9 +71,6 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character: Movement - Dash")
 		bool IsWalkingH = false;
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Character: Movement - Grapple")
-		FVector GrappleLocation;
-
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Status")
 		bool bIsChatting = false;
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Status")
@@ -98,4 +96,17 @@ protected:
 		float OutlineRange = 256.0f;
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Character: Interaction")
 		float OutlineRadius = 128.0f;
+
+protected:
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Character: Movement - Grapple")
+		FVector GrappleLocation;
+
+	UFUNCTION(BlueprintCallable, Category = "Trace")
+		bool Trace(float Distance);
+	UFUNCTION(BlueprintCallable, Category = "GrapplingHook")
+		void Grapple(float Distance);
+	UFUNCTION(BlueprintCallable, Category = "GrapplingHook")
+		void GrappleTick();
+	UFUNCTION(BlueprintCallable, Category = "GrapplingHook")
+		void GrappleStop();
 };
