@@ -63,6 +63,16 @@ void APlayerChr::look_horizontal(float Axis)
 	AddControllerYawInput(Axis * Sensitivity);
 }
 
+void APlayerChr::LookVerticalOnController(float Axis)
+{
+	AddControllerPitchInput(Axis * YSensitivity * GetWorld()->GetDeltaSeconds());
+}
+
+void APlayerChr::LookHorizontalOnController(float Axis)
+{
+	AddControllerYawInput(Axis * ZSensitivity * GetWorld()->GetDeltaSeconds());
+}
+
 void APlayerChr::noclip(int Mode)
 {
 	if(Mode == 0)

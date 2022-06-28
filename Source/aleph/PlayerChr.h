@@ -28,11 +28,11 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 protected:
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Input")
 		float Sensitivity = 0.25f;
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input: Controller")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Input: Controller")
 		float ZSensitivity = 25.0f;
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Input: Controller")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Input: Controller")
 		float YSensitivity = 45.0f;
 
 	UFUNCTION(BlueprintPure)
@@ -58,6 +58,10 @@ protected:
 		void look_vertical(float Axis);
 	UFUNCTION(BlueprintCallable, Category = "Character: Movement")
 		void look_horizontal(float Axis);
+	UFUNCTION(BlueprintCallable, Category = "Character: Movement")
+		void LookVerticalOnController(float Axis);
+	UFUNCTION(BlueprintCallable, Category = "Character: Movement")
+		void LookHorizontalOnController(float Axis);
 		
 	UFUNCTION(Exec)
 		void noclip(int Mode); // 0 = disable, 1 = enable
